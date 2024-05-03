@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>UI - Challenge</title>
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="slider-wrapper">
+        <div class="slider">
+          <img
+            id="slide-1"
+            src="media/img1.jpg"
+            alt="water falls on rocky river"
+          />
+          <img
+            id="slide-2"
+            src="media/img2.jpg"
+            alt="seashore during golden hour"
+          />
+          <img
+            id="slide-3"
+            src="media/img3.jpg"
+            alt="green trees near lake during daytime"
+          />
+          <img
+            id="slide-4"
+            src="media/img4.jpg"
+            alt="white and black cable car over green grass field during daytime"
+          />
+          <img
+            id="slide-5"
+            src="media/img5.jpg"
+            alt="green trees beside river under blue sky during daytime"
+          />
+          <img
+            id="slide-6"
+            src="media/img6.jpg"
+            alt="low angle photography of tall tree"
+          />
+          <img
+            id="slide-7"
+            src="media/img7.jpg"
+            alt="brown wooden dock between lavender flower field near body of water during golden hour"
+          />
+          <img id="slide-8" src="media/img8.jpg" alt="crystal clear water" />
+        </div>
+
+        <div class="slider-nav">
+          <a href="#slide-1"
+            ><img
+              id="strip-1"
+              src="media/img1.jpg"
+              alt="water falls on rocky river"
+          /></a>
+          <a href="#slide-2"
+            ><img
+              id="slide-2"
+              src="media/img2.jpg"
+              alt="seashore during golden hour"
+          /></a>
+          <a href="#slide-3"
+            ><img
+              id="slide-3"
+              src="media/img3.jpg"
+              alt="green trees near lake during daytime"
+          /></a>
+          <a href="#slide-4"
+            ><img
+              id="slide-4"
+              src="media/img4.jpg"
+              alt="white and black cable car over green grass field during daytime"
+          /></a>
+          <a href="#slide-5"
+            ><img
+              id="slide-5"
+              src="media/img5.jpg"
+              alt="green trees beside river under blue sky during daytime"
+          /></a>
+          <a href="#slide-6"
+            ><img
+              id="slide-6"
+              src="media/img6.jpg"
+              alt="low angle photography of tall tree"
+          /></a>
+          <a href="#slide-7"
+            ><img
+              id="slide-7"
+              src="media/img7.jpg"
+              alt="brown wooden dock between lavender flower field near body of water during golden hour"
+          /></a>
+          <a href="#slide-8"
+            ><img id="slide-8" src="media/img8.jpg" alt="crystal clear water"
+          /></a>
+        </div>
+
+        <div class="control-nav">
+          <a id="back-button" href="#slide-1"
+            ><img src="media/back-button.png" alt="back button"
+          /></a>
+          <a
+            id="fast-backward-button"
+            href="#slide-8"
+            onclick="onNavButtonClick()"
+            ><img src="media/fast-backward.png" alt="fast backward button"
+          /></a>
+          <a
+            id="fast-forward-button"
+            href="#slide-2"
+            onclick="onNavButtonClick()"
+            ><img src="media/fast-forward-button.png" alt="fast forward button"
+          /></a>
+          <a id="next-button" href="#slide-8"
+            ><img src="media/next-button.png" alt="next button"
+          /></a>
+          <a id="shuffle-button" href="#"
+            ><img
+              src="media/shuffle.png"
+              alt="shuffle button"
+              onclick="onShuffleButtonClick()"
+          /></a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <a href="https://www.flaticon.com/free-icons/ui" title="ui icons"
+          >Ui icons created by SumberRejeki - Flaticon</a
+        >
+      </div>
+    </section>
+  </body>
+
+  <script>
+    const onNavButtonClick = () => {
+      const fastForwardButton = document.getElementById("fast-forward-button");
+      const fastBackwardButton = document.getElementById(
+        "fast-backward-button"
+      );
+      const currentImageHref = window.location.hash;
+      switch (currentImageHref) {
+        case "#slide-1":
+          fastBackwardButton.href = "#slide-8";
+          fastForwardButton.href = "#slide-2";
+          break;
+
+        case "#slide-2":
+          fastBackwardButton.href = "#slide-1";
+          fastForwardButton.href = "#slide-3";
+          break;
+
+        case "#slide-3":
+          fastBackwardButton.href = "#slide-2";
+          fastForwardButton.href = "#slide-4";
+          break;
+
+        case "#slide-4":
+          fastBackwardButton.href = "#slide-3";
+          fastForwardButton.href = "#slide-5";
+          break;
+
+        case "#slide-5":
+          fastBackwardButton.href = "#slide-4";
+          fastForwardButton.href = "#slide-6";
+          break;
+
+        case "#slide-6":
+          fastBackwardButton.href = "#slide-5";
+          fastForwardButton.href = "#slide-7";
+          break;
+
+        case "#slide-7":
+          fastBackwardButton.href = "#slide-6";
+          fastForwardButton.href = "#slide-8";
+          break;
+
+        case "#slide-8":
+          fastBackwardButton.href = "#slide-7";
+          fastForwardButton.href = "#slide-1";
+          break;
+
+        default:
+          break;
+      }
+    };
+
+    const onShuffleButtonClick = () => {
+      var sliderNav = document.querySelector(".slider-nav");
+      var slider = document.querySelector(".slider");
+
+      for (let i = 0; i < sliderNav.children.length; i++) {
+        sliderNav.appendChild(sliderNav.children[(Math.random() * i) | 0]);
+      }
+      for (let i = 0; i < sliderNav.children.length; i++) {
+        console.log(slider.children[i]);
+        console.log(sliderNav.children[i].children[0]);
+        slider.children[i].src = sliderNav.children[i].children[0].src;
+        slider.children[i].alt = sliderNav.children[i].children[0].alt;
+      }
+    };
+  </script>
+</html>
