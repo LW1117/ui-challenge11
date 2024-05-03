@@ -58,7 +58,6 @@ const onNavButtonClick = () => {
       sliderNav.appendChild(sliderNav.children[(Math.random() * i) | 0]);
     }
     for (let i = 0; i < sliderNav.children.length; i++) {
-      console.log(sliderNav.children[i].children[0].id);
       slider.children[i].src = sliderNav.children[i].children[0].src;
       slider.children[i].alt = sliderNav.children[i].children[0].alt;
     }
