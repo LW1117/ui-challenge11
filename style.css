@@ -1,5 +1,5 @@
 .container {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
 .container-wrapper {
@@ -36,12 +36,11 @@
     transform: translateX(-50%);
     z-index: 1;
 }
-.slider-nav a img{
+.slider-nav div img{
     width: 8rem;
     height: 8rem;
     border-radius: 15%;
     background-color: #fff;
-    opacity: 0.75rem;
     transition: opacity ease 250ms;
 
 }
@@ -63,18 +62,23 @@
     height: 2rem;
     border-radius: 50%;
     background-color: #fff;
-    opacity: 0.75rem;
-    transition: opacity ease 250ms;
 }
 
-.slider-nav a img:hover {
-    opacity: 1;
-}
-.control-nav a img:hover {
-    opacity: 1;
+
+#title {
+    text-align: center;
 }
 
-.footer {
-    position: absolute;
-    margin: 0 auto;
+#seperator {
+    width: 50%;
+}
+
+body {
+    background-color: #EEF7FF;
+}
+
+
+.control-nav {
+    background-color: #CDE8E5;
+    border-radius: 10px;
 }
